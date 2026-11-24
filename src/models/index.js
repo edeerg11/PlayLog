@@ -1,1 +1,3 @@
-// Importa y exporta todos los modelos: export { User, Game, Review }
+import User from "./user.model.js";
+
+export { User };
