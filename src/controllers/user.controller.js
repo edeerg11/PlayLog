@@ -1,0 +1,1 @@
+// getAll (solo admin)

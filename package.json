@@ -1,0 +1,15 @@
+{
+  "name": "playlog-api",
+  "version": "1.0.0",
+  "description": "API REST de videojuegos y reseñas con Express y MongoDB",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
