@@ -40,12 +40,13 @@ const userSchema = new mongoose.Schema(
 
 // Hooks y metodos
 userSchema.pre("save", async function () {
-  // hashear la contraseña
-  return
+  if (!this.isModified("password")) return;
+// hashear la contraseña
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
 userSchema.methods.checkPassword = async function (plainPassword) {
-  // comparar con bcrypt
+  return bcrypt.compare(plainPassword, this.password);
 };
 
 // Crear el modelo y exportarlo
