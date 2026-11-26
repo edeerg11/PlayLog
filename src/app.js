@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import authRoutes from "./routes/auth.routes.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 const app = express();
 
@@ -16,5 +17,14 @@ app.get("/api/health", (req, res) => {
 });
 app.use("/api/auth", authRoutes);
 
+// ── Ruta no encontrada ───────────────────────────────
+app.use((req, res, next) => {
+  const error = new Error(`Ruta no encontrada: ${req.method} ${req.url}`);
+  error.statusCode = 404;
+  next(error);
+});
+
+// ── Manejador de errores ─────────
+app.use(errorHandler);
 
 export default app;
