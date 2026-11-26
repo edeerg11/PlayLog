@@ -1,6 +1,10 @@
 import "dotenv/config";
 import app from "./app.js";
 import connectDB from "./config/db.js";
+import User from "./user.model.js";
+import Game from "./game.model.js";
+
+export { User, Game };
 
 const startServer = async () => {
   try {
