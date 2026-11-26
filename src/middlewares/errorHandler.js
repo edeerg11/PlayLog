@@ -37,7 +37,7 @@ const errorHandler = (err, req, res, next) => {
   const request = { error: message };
 
   if (process.env.NODE_ENV === "development") {
-    respuesta.stack = err.stack;
+    request.stack = err.stack;
   }
 
   res.status(statusCode).json(request);
